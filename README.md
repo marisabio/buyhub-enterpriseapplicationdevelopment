@@ -1,10 +1,10 @@
 # BuyHub
 
-JOSÉ CARLOS SILVA - API/Back-end
-LEONARDO GUIMARÃES MARQUES - Mobile/Front-end
-MARIA LUIZA GOVEIA - Machine Learning/AI
-MARIANA MARQUES SABIO - DevOps
-VINÍCIUS DE ABREU PENA - Engenharia de Dados
+JOSÉ CARLOS SILVA - API/Back-end  
+LEONARDO GUIMARÃES MARQUES - Mobile/Front-end  
+MARIA LUIZA GOVEIA - Machine Learning/AI  
+MARIANA MARQUES SABIO - DevOps  
+VINÍCIUS DE ABREU PENA - Engenharia de Dados  
 
 ## Descrição
 
