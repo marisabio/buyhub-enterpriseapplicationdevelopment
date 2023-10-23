@@ -19,10 +19,10 @@ Após clonar o reposítório, rodar a classe _Main_ do projeto em sua IDE de pre
 
 ## Diagramas
 
-**Diagrama Lógico:**
+**Diagrama Lógico:**  
 ![Diagrama Lógico](/assets/images/logico.png)
 
-**Diagrama Relacional:**
+**Diagrama Relacional:**  
 ![Diagrama Relacional](/assets/images/relacional.png)
 
 ## Pitch
