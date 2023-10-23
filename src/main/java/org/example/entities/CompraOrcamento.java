@@ -14,32 +14,28 @@ import java.sql.Date;
 @ToString
 @Entity
 @Table(name = "compra_orcamento")
-public class compraOrcamento {
+public class CompraOrcamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idOrcamento;
 
-    //private long idRequisicao;
-    private Date dataOrcamento;
-    //private long cnpjFornecedor;
-    private int idProduto;
-    private long cnpjFornecedor1;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_requisicao")
+    private CompraRequisicao compraRequisicao;
 
+    private Date dataOrcamento;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioCliente")
-    private compraRequisicao compraRequisicao;
+    private CompraCliente compraCliente;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cnpjFornecedor")
-    private compraFornecedor compraFornecedor;
+    private CompraFornecedor compraFornecedor;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "usuarioCliente")
-    private compraRequisicao usuarioCliente;*/
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_produto")
+    private CompraProduto compraProduto;
 
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idRequisicao")
-    private compraRequisicao idRequisicao;*/
 }

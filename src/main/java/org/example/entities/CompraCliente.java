@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "compra_cliente")
-public class compraCliente {
+public class CompraCliente {
 
    @Id
    private String usuarioCliente;
@@ -25,5 +25,5 @@ public class compraCliente {
    private String setorCliente;
 
    @OneToMany(mappedBy = "compraCliente", fetch = FetchType.LAZY)
-   private List<compraRequisicao> compraRequisicaos;
+   private List<CompraRequisicao> compraRequisicaos;
 }

@@ -14,10 +14,9 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "compra_fornecedor")
-public class compraFornecedor {
+public class CompraFornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private long cnpjFornecedor;
 
     private String senhaFornecedor;
@@ -25,5 +24,8 @@ public class compraFornecedor {
     private String ramoFornecedor;
 
     @OneToMany(mappedBy = "compraFornecedor", fetch = FetchType.LAZY)
-    private List<compraOrcamento> compraOrcamento;
+    private List<CompraOrcamento> compraOrcamento;
+
+    @OneToMany(mappedBy = "compraFornecedor", fetch = FetchType.LAZY)
+    private List<CompraProduto> compraProduto;
 }
