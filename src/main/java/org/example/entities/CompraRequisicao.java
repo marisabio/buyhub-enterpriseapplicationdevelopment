@@ -35,6 +35,4 @@ public class CompraRequisicao {
     private Date dataRequisicao;
     private int quantidadeRequisicao;
 
-
-
 }

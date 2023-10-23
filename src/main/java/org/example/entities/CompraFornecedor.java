@@ -28,4 +28,5 @@ public class CompraFornecedor {
 
     @OneToMany(mappedBy = "compraFornecedor", fetch = FetchType.LAZY)
     private List<CompraProduto> compraProduto;
+
 }

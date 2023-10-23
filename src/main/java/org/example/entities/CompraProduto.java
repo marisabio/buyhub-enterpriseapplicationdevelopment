@@ -25,4 +25,5 @@ public class CompraProduto {
     private String descricaoProduto;
     private double valorProduto;
     private String aplicacaoProduto;
+
 }
