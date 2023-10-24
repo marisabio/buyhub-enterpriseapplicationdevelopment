@@ -1,4 +1,4 @@
-package org.example;
+package org.buyhub;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
