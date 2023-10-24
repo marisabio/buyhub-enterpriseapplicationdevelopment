@@ -18,6 +18,11 @@ A entrega de Enterprise Application Development busca atender as necessidades da
 
 Após clonar o reposítório, rodar a classe _Main_ do projeto em sua IDE de preferência ou rodar o _.jar_ compilado com o _maven_ pelo terminal.
 
+## Pitch
+
+Link:
+https://drive.google.com/file/d/1kbBihsN52_CZ4tzKZcw3UpKHhrDQEIYA/view
+
 ## Diagramas
 
 **Diagrama Lógico:**  
@@ -28,8 +33,3 @@ Após clonar o reposítório, rodar a classe _Main_ do projeto em sua IDE de pre
 
 **Diagrama de Classe:**  
 ![Diagrama de Classe](/assets/images/classe.png)
-
-## Pitch
-
-Link:
-https://drive.google.com/file/d/1kbBihsN52_CZ4tzKZcw3UpKHhrDQEIYA/view
