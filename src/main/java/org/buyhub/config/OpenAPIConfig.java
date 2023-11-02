@@ -6,10 +6,6 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -17,7 +13,7 @@ import java.util.List;
 public class OpenAPIConfig {
 
     @Bean
-    public OpenAPI geraDocumentacao() {
+    public OpenAPI gerarDocumentacao() {
         Server devServer = new Server();
         devServer.setUrl("http://localhost:8080");
         devServer.description("URL de desenvolvimento local.");
