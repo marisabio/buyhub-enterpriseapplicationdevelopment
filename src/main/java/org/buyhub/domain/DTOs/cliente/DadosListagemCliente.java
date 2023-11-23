@@ -1,7 +1,7 @@
-package org.buyhub.DTOs.cliente;
+package org.buyhub.domain.DTOs.cliente;
 
-import org.buyhub.entities.CompraCliente;
-import org.buyhub.entities.CompraRequisicao;
+import org.buyhub.domain.entities.CompraCliente;
+import org.buyhub.domain.entities.CompraRequisicao;
 
 import java.util.List;
 

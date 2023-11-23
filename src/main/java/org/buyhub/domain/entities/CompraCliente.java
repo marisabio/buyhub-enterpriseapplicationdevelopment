@@ -1,12 +1,12 @@
-package org.buyhub.entities;
+package org.buyhub.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.buyhub.DTOs.cliente.DadosAtualizacaoCliente;
-import org.buyhub.DTOs.cliente.DadosCadastroCliente;
+import org.buyhub.domain.DTOs.cliente.DadosAtualizacaoCliente;
+import org.buyhub.domain.DTOs.cliente.DadosCadastroCliente;
 
 import java.util.List;
 

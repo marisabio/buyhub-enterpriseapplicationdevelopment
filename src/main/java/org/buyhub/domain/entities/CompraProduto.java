@@ -1,4 +1,4 @@
-package org.buyhub.entities;
+package org.buyhub.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
