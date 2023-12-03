@@ -42,7 +42,7 @@ public class PedidoContoller {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{pedido}")
+    @GetMapping("/{idPedido}")
     @Operation(summary = "Exibir pedido", description = "Endpoint da exibição de um único pedido cadastrado.")
     public ResponseEntity exibir(@PathVariable Long ComprasPedido) {
         var pedido = repository.getReferenceById(ComprasPedido);
@@ -58,7 +58,7 @@ public class PedidoContoller {
         return ResponseEntity.ok(new DadosListagemPedido(pedido));
     }
 
-    @DeleteMapping("/{pedido}")
+    @DeleteMapping("/{idPedido}")
     @Transactional
     @Operation(summary = "Excluir pedido", description = "Endpoint da exclusão de um único pedido cadastrado.")
     public ResponseEntity excluir(@PathVariable Long ComprasPedido) {

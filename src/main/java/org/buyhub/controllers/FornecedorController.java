@@ -42,7 +42,7 @@ public class FornecedorController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{fornecedor}")
+    @GetMapping("/{cnpjFornecedor}")
     @Operation(summary = "Exibir fornecedor", description = "Endpoint da exibição de um único fornecedor cadastrado.")
     public ResponseEntity exibir(@PathVariable Long CompraFornecedor) {
         var fornecedor = repository.getReferenceById(CompraFornecedor);

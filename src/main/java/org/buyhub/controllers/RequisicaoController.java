@@ -42,7 +42,7 @@ public class RequisicaoController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{requisicao}")
+    @GetMapping("/{idRequisicao}")
     @Operation(summary = "Exibir requisição", description = "Endpoint da exibição de uma única requisição cadastrada.")
     public ResponseEntity exibir(@PathVariable Long CompraRequisicao) {
         var requisicao = repository.getReferenceById(CompraRequisicao);
@@ -58,7 +58,7 @@ public class RequisicaoController {
         return ResponseEntity.ok(new DadosListagemRequisicao(requisicao));
     }
 
-    @DeleteMapping("/{requisicao}")
+    @DeleteMapping("/{idRequisicao}")
     @Transactional
     @Operation(summary = "Excluir requisição", description = "Endpoint da exclusão de uma única requisição cadastrada.")
     public ResponseEntity excluir(@PathVariable Long CompraRequisicao) {
