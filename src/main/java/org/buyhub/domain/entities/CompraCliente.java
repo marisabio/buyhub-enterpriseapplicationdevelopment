@@ -26,7 +26,7 @@ public class CompraCliente {
    private String senhaCliente;
    private String setorCliente;
 
-   @OneToMany(mappedBy = "compraCliente", fetch = FetchType.LAZY)
+   @OneToMany(targetEntity = CompraRequisicao.class, mappedBy = "compraCliente", fetch = FetchType.LAZY)
    private List<CompraRequisicao> compraRequisicoes;
 
    public CompraCliente(DadosCadastroCliente dados) {

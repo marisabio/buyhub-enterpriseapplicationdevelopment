@@ -5,8 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.buyhub.domain.DTOs.requisicao.DadosAtualizacaoRequisicao;
+import org.buyhub.domain.DTOs.requisicao.DadosCadastroRequisicao;
 
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,19 +23,48 @@ public class CompraRequisicao {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long idRequisicao;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = CompraProduto.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_produto")
-    private CompraProduto compraProduto;
+    private List<CompraProduto> compraProduto;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = CompraFornecedor.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "cnpj_forncedor")
-    private CompraFornecedor compraFornecedor;
+    private List<CompraFornecedor> compraFornecedor;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = CompraCliente.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioCliente")
-    private CompraCliente compraCliente;
+    private List<CompraCliente> compraCliente;
 
     private Date dataRequisicao;
     private int quantidadeRequisicao;
 
+    public CompraRequisicao(DadosCadastroRequisicao dados) {
+        this.idRequisicao = dados.idRequisicao();
+        this.compraProduto = dados.compraProduto();
+        this.compraFornecedor = dados.compraFornecedor();
+        this.compraCliente = dados.compraCliente();
+        this.dataRequisicao = dados.dataRequisicao();
+        this.quantidadeRequisicao = dados.quantidadeRequisicao();
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoRequisicao dados) {
+        if (dados.idRequisicao() != null) {
+            this.idRequisicao = dados.idRequisicao();
+        }
+        if (dados.compraProduto() != null) {
+            this.compraProduto = dados.compraProduto();
+        }
+        if (dados.compraFornecedor() != null) {
+            this.compraFornecedor = dados.compraFornecedor();
+        }
+        if (dados.compraCliente() != null) {
+            this.compraCliente = dados.compraCliente();
+        }
+        if (dados.dataRequisicao() != null) {
+            this.dataRequisicao = dados.dataRequisicao();
+        }
+        if (dados.quantidadeRequisicao() != 0) {
+            this.quantidadeRequisicao = dados.quantidadeRequisicao();
+        }
+    }
 }

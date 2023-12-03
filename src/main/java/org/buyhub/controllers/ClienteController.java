@@ -44,8 +44,8 @@ public class ClienteController {
 
     @GetMapping("/{usuarioCliente}")
     @Operation(summary = "Exibir cliente", description = "Endpoint da exibição de um único cliente cadastrado.")
-    public ResponseEntity exibir(@PathVariable String usuarioCliente) {
-        var cliente = repository.getReferenceById(usuarioCliente);
+    public ResponseEntity exibir(@PathVariable String CompraCliente) {
+        var cliente = repository.getReferenceById(CompraCliente);
         return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
 
@@ -55,15 +55,15 @@ public class ClienteController {
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
         var cliente = repository.getReferenceById(dados.usuarioCliente());
         cliente.atualizarInformacoes(dados);
-        return ResponseEntity.ok(new DadosListagemCliente((cliente)));
+        return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
 
     @DeleteMapping("/{usuarioCliente}")
     @Transactional
     @Operation(summary = "Excluir cliente", description = "Endpoint da exclusão de um único cliente cadastrado.")
-    public ResponseEntity excluir(@PathVariable String usuarioCliente) {
-        repository.deleteById(usuarioCliente);
-        return ResponseEntity.ok().body("Cliente " + usuarioCliente + " deletado.");
+    public ResponseEntity excluir(@PathVariable String CompraCliente) {
+        repository.deleteById(CompraCliente);
+        return ResponseEntity.ok().body("Cliente " + CompraCliente + " deletado.");
     }
 
 }
