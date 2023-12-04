@@ -31,5 +31,4 @@ https://drive.google.com/file/d/1kbBihsN52_CZ4tzKZcw3UpKHhrDQEIYA/view
 **Diagrama de Classe:**  
 ![Diagrama de Classe](/assets/images/classe.png)
 
-**Diagrama de Infraestrutura:**  
-![Diagrama de Classe](/assets/images/devops.png)
+
