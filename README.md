@@ -12,8 +12,6 @@ O objetivo do projeto será desenvolver uma plataforma digital de procurement, n
 
 O back-end da plataforma será uma API Rest em Java, usando como banco de dados relacional o servidor Oracle PL/SQL fornecido pela FIAP, com o front-end sendo desenvolvido para mobile com react-native. O deploy do back-end será realizado em uma máquina virtual Linux em cloud no Microsoft Azure.  
 
-A entrega de Enterprise Application Development busca atender as necessidades da API Rest da plataforma, utilizando do Oracle SQL como banco de dados relacional e do Hibernate para a manipulação de entidades JPA.
-
 ## Instruções
 
 Após clonar o reposítório, rodar a classe _Main_ do projeto em sua IDE de preferência ou rodar o _.jar_ compilado com o _maven_ pelo terminal.
@@ -33,3 +31,6 @@ https://drive.google.com/file/d/1kbBihsN52_CZ4tzKZcw3UpKHhrDQEIYA/view
 
 **Diagrama de Classe:**  
 ![Diagrama de Classe](/assets/images/classe.png)
+
+**Diagrama de Infraestrutura:**  
+![Diagrama de Classe](/assets/images/devops.png)
