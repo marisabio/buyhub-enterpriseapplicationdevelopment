@@ -13,10 +13,10 @@ public record DadosListagemRequisicao(
         List<CompraProduto> compraProduto,
         List<CompraFornecedor> compraFornecedor,
         List<CompraCliente> compraCliente,
-        Date dataRequisicao,
-        int quantidadeRequisicao) {
+        Date dtRequisicao,
+        int qntdRequisicao) {
 
     public DadosListagemRequisicao(CompraRequisicao CompraRequisicao) {
-        this(CompraRequisicao.getIdRequisicao(), CompraRequisicao.getCompraProduto(), CompraRequisicao.getCompraFornecedor(), CompraRequisicao.getCompraCliente(), CompraRequisicao.getDataRequisicao(), CompraRequisicao.getQuantidadeRequisicao());
+        this(CompraRequisicao.getIdRequisicao(), CompraRequisicao.getCompraProduto(), CompraRequisicao.getCompraFornecedor(), CompraRequisicao.getCompraCliente(), CompraRequisicao.getDtRequisicao(), CompraRequisicao.getQntdRequisicao());
     }
 }

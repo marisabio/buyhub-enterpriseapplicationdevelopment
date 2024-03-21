@@ -14,7 +14,7 @@ public record DadosCadastroFornecedor(
         @NotBlank
         String senhaFornecedor,
         @NotBlank
-        String nomeFornecedor,
+        String nmFornecedor,
         @NotBlank
         String ramoFornecedor,
         @NotBlank

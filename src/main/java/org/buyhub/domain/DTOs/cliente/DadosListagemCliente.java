@@ -7,13 +7,13 @@ import java.util.List;
 
 public record DadosListagemCliente(
         String usuarioCliente,
-        long cnpj,
-        String nomeCliente,
+        long cnpjCliente,
+        String nmCliente,
         String senhaCliente,
         String setorCliente,
         List<CompraRequisicao> requisicao) {
 
     public DadosListagemCliente(CompraCliente cliente) {
-        this(cliente.getUsuarioCliente(), cliente.getCnpj(), cliente.getNomeCliente(), cliente.getSenhaCliente(), cliente.getSetorCliente(), cliente.getCompraRequisicoes());
+        this(cliente.getUsuarioCliente(), cliente.getCnpjCliente(), cliente.getNmCliente(), cliente.getSenhaCliente(), cliente.getSetorCliente(), cliente.getCompraRequisicoes());
     }
 }

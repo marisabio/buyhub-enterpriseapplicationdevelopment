@@ -13,9 +13,9 @@ public record DadosCadastroCliente(
         @Email
         String usuarioCliente,
         @NotBlank
-        long cnpj,
+        long cnpjCliente,
         @NotBlank
-        String nomeCliente,
+        String nmCliente,
         @NotBlank
         String senhaCliente,
         @NotBlank

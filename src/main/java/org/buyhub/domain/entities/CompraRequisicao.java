@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compra_requisicao")
+@Table(name = "t_compra_requisicao")
 public class CompraRequisicao {
 
     @Id
@@ -24,27 +24,27 @@ public class CompraRequisicao {
     private long idRequisicao;
 
     @ManyToOne(targetEntity = CompraProduto.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_produto")
+    @JoinColumn(name = "idProduto")
     private List<CompraProduto> compraProduto;
 
     @ManyToOne(targetEntity = CompraFornecedor.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cnpj_forncedor")
+    @JoinColumn(name = "cnpjFornecedor")
     private List<CompraFornecedor> compraFornecedor;
 
     @ManyToOne(targetEntity = CompraCliente.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioCliente")
     private List<CompraCliente> compraCliente;
 
-    private Date dataRequisicao;
-    private int quantidadeRequisicao;
+    private Date dtRequisicao;
+    private int qntdRequisicao;
 
     public CompraRequisicao(DadosCadastroRequisicao dados) {
         this.idRequisicao = dados.idRequisicao();
         this.compraProduto = dados.compraProduto();
         this.compraFornecedor = dados.compraFornecedor();
         this.compraCliente = dados.compraCliente();
-        this.dataRequisicao = dados.dataRequisicao();
-        this.quantidadeRequisicao = dados.quantidadeRequisicao();
+        this.dtRequisicao = dados.dtRequisicao();
+        this.qntdRequisicao = dados.qntdRequisicao();
     }
 
     public void atualizarInformacoes(DadosAtualizacaoRequisicao dados) {
@@ -60,11 +60,11 @@ public class CompraRequisicao {
         if (dados.compraCliente() != null) {
             this.compraCliente = dados.compraCliente();
         }
-        if (dados.dataRequisicao() != null) {
-            this.dataRequisicao = dados.dataRequisicao();
+        if (dados.dtRequisicao() != null) {
+            this.dtRequisicao = dados.dtRequisicao();
         }
-        if (dados.quantidadeRequisicao() != 0) {
-            this.quantidadeRequisicao = dados.quantidadeRequisicao();
+        if (dados.qntdRequisicao() != 0) {
+            this.qntdRequisicao = dados.qntdRequisicao();
         }
     }
 }

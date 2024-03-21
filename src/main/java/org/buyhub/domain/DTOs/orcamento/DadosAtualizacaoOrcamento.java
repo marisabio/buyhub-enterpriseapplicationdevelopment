@@ -15,7 +15,7 @@ public record DadosAtualizacaoOrcamento(
         Long idOrcamento,
         @Valid
         List<CompraRequisicao> compraRequisicao,
-        Date dataOrcamento,
+        Date dtOrcamento,
         @Valid
         List<CompraCliente> compraCliente,
         @Valid

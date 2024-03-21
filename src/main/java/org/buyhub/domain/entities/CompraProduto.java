@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compra_produto")
+@Table(name = "t_compra_produto")
 public class CompraProduto {
 
     @Id
@@ -26,16 +26,16 @@ public class CompraProduto {
     @JoinColumn(name = "cnpj_fornecedor")
     private List<CompraFornecedor> compraFornecedor;
 
-    private String descricaoProduto;
-    private double valorProduto;
-    private String aplicacaoProduto;
+    private String descProduto;
+    private double vlProduto;
+    private String aplicacaoProd;
 
     public CompraProduto(DadosCadastroProduto dados) {
         this.idProduto = dados.idProduto();
         this.compraFornecedor = dados.compraFornecedor();
-        this.descricaoProduto = dados.descricaoProduto();
-        this.valorProduto = dados.valorProduto();
-        this.aplicacaoProduto = dados.aplicacaoProduto();
+        this.descProduto = dados.descProduto();
+        this.vlProduto = dados.vlProduto();
+        this.aplicacaoProd = dados.aplicacaoProd();
     }
 
     public void atualizarInformacoes(DadosAtualizacaoProduto dados) {
@@ -45,14 +45,14 @@ public class CompraProduto {
         if (dados.compraFornecedor() != null) {
             this.compraFornecedor = dados.compraFornecedor();
         }
-        if (dados.descricaoProduto() != null) {
-            this.descricaoProduto = dados.descricaoProduto();
+        if (dados.descProduto() != null) {
+            this.descProduto = dados.descProduto();
         }
-        if (dados.valorProduto() != 0) {
-            this.valorProduto = dados.valorProduto();
+        if (dados.vlProduto() != 0) {
+            this.vlProduto = dados.vlProduto();
         }
-        if (dados.aplicacaoProduto() != null) {
-            this.aplicacaoProduto = dados.aplicacaoProduto();
+        if (dados.aplicacaoProd() != null) {
+            this.aplicacaoProd = dados.aplicacaoProd();
         }
     }
 

@@ -14,9 +14,9 @@ public record DadosCadastroProduto(
         @Valid
         List<CompraFornecedor> compraFornecedor,
         @NotBlank
-        String descricaoProduto,
+        String descProduto,
         @NotBlank
-        double valorProduto,
+        double vlProduto,
         @NotBlank
-        String aplicacaoProduto) {
+        String aplicacaoProd) {
 }

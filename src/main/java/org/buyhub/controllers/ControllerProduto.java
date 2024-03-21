@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("/produtos")
 @Tag(name = "Produto",description = "CRUD de produto.")
-public class ProdutoController {
+public class ControllerProduto {
 
     @Autowired
     private RepositoryProduto repository;

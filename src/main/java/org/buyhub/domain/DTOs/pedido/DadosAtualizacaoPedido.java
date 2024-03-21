@@ -14,8 +14,8 @@ public record DadosAtualizacaoPedido(
         List<CompraOrcamento> compraOrcamento,
         @Valid
         List<CompraRequisicao> compraRequisicao,
-        int quantidadePedido,
-        Date dataPedido,
+        int qntdPedido,
+        Date dtPedido,
         @Valid
         List<CompraCliente> compraCliente,
         @Valid

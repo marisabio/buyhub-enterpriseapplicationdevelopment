@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compra_orcamento")
+@Table(name = "t_compra_orcamento")
 public class CompraOrcamento {
 
     @Id
@@ -27,7 +27,7 @@ public class CompraOrcamento {
     @JoinColumn(name = "id_requisicao")
     private List<CompraRequisicao> compraRequisicao;
 
-    private Date dataOrcamento;
+    private Date dtOrcamento;
 
     @ManyToOne(targetEntity = CompraCliente.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioCliente")
@@ -44,7 +44,7 @@ public class CompraOrcamento {
     public CompraOrcamento(DadosCadastroOrcamento dados) {
         this.idOrcamento = dados.idOrcamento();
         this.compraRequisicao = dados.compraRequisicao();
-        this.dataOrcamento = dados.dataOrcamento();
+        this.dtOrcamento = dados.dtOrcamento();
         this.compraCliente = dados.compraCliente();
         this.compraFornecedor = dados.compraFornecedor();
         this.compraProduto = dados.compraProduto();
@@ -57,8 +57,8 @@ public class CompraOrcamento {
         if (dados.compraRequisicao() != null) {
             this.compraRequisicao = dados.compraRequisicao();
         }
-        if (dados.dataOrcamento() != null) {
-            this.dataOrcamento = dados.dataOrcamento();
+        if (dados.dtOrcamento() != null) {
+            this.dtOrcamento = dados.dtOrcamento();
         }
         if (dados.compraCliente() != null) {
             this.compraCliente = dados.compraCliente();

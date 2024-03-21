@@ -20,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("/clientes")
 @Tag(name = "Cliente",description = "CRUD do Cliente.")
-public class ClienteController {
+public class ControllerCliente {
 
     @Autowired
     private RepositoryCliente repository;

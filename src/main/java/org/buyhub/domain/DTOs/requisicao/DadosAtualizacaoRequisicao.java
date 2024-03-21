@@ -18,6 +18,6 @@ public record DadosAtualizacaoRequisicao(
         List<CompraFornecedor> compraFornecedor,
         @Valid
         List<CompraCliente> compraCliente,
-        Date dataRequisicao,
-        int quantidadeRequisicao) {
+        Date dtRequisicao,
+        int qntdRequisicao) {
 }

@@ -8,11 +8,11 @@ import java.util.List;
 public record DadosListagemOrcamento (
         Long idOrcamento,
         List<CompraRequisicao> compraRequisicao,
-        Date dataOrcamento,
+        Date dtOrcamento,
         List<CompraCliente> compraCliente,
         List<CompraFornecedor> compraFornecedor,
         List<CompraProduto> compraProduto){
     public DadosListagemOrcamento(CompraOrcamento CompraOrcamento) {
-        this(CompraOrcamento.getIdOrcamento(), CompraOrcamento.getCompraRequisicao(), CompraOrcamento.getDataOrcamento(), CompraOrcamento.getCompraCliente(), CompraOrcamento.getCompraFornecedor(), CompraOrcamento.getCompraProduto());
+        this(CompraOrcamento.getIdOrcamento(), CompraOrcamento.getCompraRequisicao(), CompraOrcamento.getDtOrcamento(), CompraOrcamento.getCompraCliente(), CompraOrcamento.getCompraFornecedor(), CompraOrcamento.getCompraProduto());
     }
 }

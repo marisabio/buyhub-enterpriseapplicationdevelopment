@@ -11,7 +11,7 @@ public record DadosAtualizacaoProduto(
         Long idProduto,
         @Valid
         List<CompraFornecedor> compraFornecedor,
-        String descricaoProduto,
-        double valorProduto,
-        String aplicacaoProduto) {
+        String descProduto,
+        double vlProduto,
+        String aplicacaoProd) {
 }

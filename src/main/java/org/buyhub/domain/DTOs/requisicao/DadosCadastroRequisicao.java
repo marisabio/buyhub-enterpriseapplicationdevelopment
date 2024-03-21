@@ -22,7 +22,7 @@ public record DadosCadastroRequisicao(
         @Valid
         List<CompraCliente> compraCliente,
         @NotBlank
-        Date dataRequisicao,
+        Date dtRequisicao,
         @NotBlank
-        int quantidadeRequisicao) {
+        int qntdRequisicao) {
 }

@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compras_pedido")
+@Table(name = "t_compras_pedido")
 public class ComprasPedido {
 
     @Id
@@ -24,15 +24,15 @@ public class ComprasPedido {
     private long idPedido;
 
     @ManyToOne(targetEntity = CompraOrcamento.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_orcamento")
+    @JoinColumn(name = "idOrcamento")
     private List<CompraOrcamento> compraOrcamento;
 
     @ManyToOne(targetEntity = CompraRequisicao.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_requisicao")
+    @JoinColumn(name = "idRequisicao")
     private List<CompraRequisicao> compraRequisicao;
 
-    private int quantidadePedido;
-    private Date dataPedido;
+    private int qntdPedido;
+    private Date dtPedido;
 
     @ManyToOne(targetEntity = CompraCliente.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioCliente")
@@ -43,15 +43,15 @@ public class ComprasPedido {
     private List<CompraFornecedor> compraFornecedor;
 
     @ManyToOne(targetEntity = CompraProduto.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_produto")
+    @JoinColumn(name = "idProduto")
     private List<CompraProduto> compraProduto;
 
     public ComprasPedido(DadosCadastroPedido dados) {
         this.idPedido = dados.idPedido();
         this.compraOrcamento = dados.compraOrcamento();
         this.compraRequisicao = dados.compraRequisicao();
-        this.quantidadePedido = dados.quantidadePedido();
-        this.dataPedido = dados.dataPedido();
+        this.qntdPedido = dados.qntdPedido();
+        this.dtPedido = dados.dtPedido();
         this.compraCliente = dados.compraCliente();
         this.compraFornecedor = dados.compraFornecedor();
         this.compraProduto = dados.compraProduto();
@@ -67,11 +67,11 @@ public class ComprasPedido {
         if (dados.compraRequisicao() != null) {
             this.compraRequisicao = dados.compraRequisicao();
         }
-        if (dados.quantidadePedido() != 0) {
-            this.quantidadePedido = dados.quantidadePedido();
+        if (dados.qntdPedido() != 0) {
+            this.qntdPedido = dados.qntdPedido();
         }
-        if (dados.dataPedido() != null) {
-            this.dataPedido = dados.dataPedido();
+        if (dados.dtPedido() != null) {
+            this.dtPedido = dados.dtPedido();
         }
         if (dados.compraCliente() != null) {
             this.compraCliente = dados.compraCliente();

@@ -11,7 +11,7 @@ public record DadosAtualizacaoCliente(
         @Email
         String usuarioCliente,
         Long cnpj,
-        String nomeCliente,
+        String nmCliente,
         String senhaCliente,
         String setorCliente,
         List<CompraRequisicao> requisicao) {

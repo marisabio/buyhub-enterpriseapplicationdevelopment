@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/fornecedor")
+@RequestMapping("/fornecedores")
 @Tag(name = "Fornecedor",description = "CRUD de fornecedor.")
-public class FornecedorController {
+public class ControllerFornecedor {
 
     @Autowired
     private RepositoryFornecedor repository;

@@ -19,7 +19,7 @@ public record DadosCadastroOrcamento(
         @Valid
         List<CompraRequisicao> compraRequisicao,
         @NotBlank
-        Date dataOrcamento,
+        Date dtOrcamento,
         @NotBlank
         @Valid
         List<CompraCliente> compraCliente,

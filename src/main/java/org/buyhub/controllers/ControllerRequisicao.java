@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/requisicao")
+@RequestMapping("/requisicoes")
 @Tag(name = "Requisição",description = "CRUD de requisição.")
-public class RequisicaoController {
+public class ControllerRequisicao {
 
     @Autowired
     private RepositoryRequisicao repository;

@@ -15,14 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compra_fornecedor")
+@Table(name = "t_compra_fornecedor")
 public class CompraFornecedor {
 
     @Id
     private long cnpjFornecedor;
 
     private String senhaFornecedor;
-    private String nomeFornecedor;
+    private String nmFornecedor;
     private String ramoFornecedor;
 
     @OneToMany(targetEntity = CompraOrcamento.class, mappedBy = "compraFornecedor", fetch = FetchType.LAZY)
@@ -34,7 +34,7 @@ public class CompraFornecedor {
     public CompraFornecedor(DadosCadastroFornecedor dados) {
         this.cnpjFornecedor = dados.cnpjFornecedor();
         this.senhaFornecedor = dados.senhaFornecedor();
-        this.nomeFornecedor = dados.nomeFornecedor();
+        this.nmFornecedor = dados.nmFornecedor();
         this.ramoFornecedor = dados.ramoFornecedor();
         this.compraOrcamentos = dados.compraOrcamentos();
         this.compraProdutos = dados.compraProdutos();
@@ -47,8 +47,8 @@ public class CompraFornecedor {
         if (dados.senhaFornecedor() != null) {
             this.senhaFornecedor = dados.senhaFornecedor();
         }
-        if (dados.nomeFornecedor() != null) {
-            this.nomeFornecedor = dados.nomeFornecedor();
+        if (dados.nmFornecedor() != null) {
+            this.nmFornecedor = dados.nmFornecedor();
         }
         if (dados.ramoFornecedor() != null) {
             this.compraOrcamentos = dados.compraOrcamentos();

@@ -15,14 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "compra_cliente")
+@Table(name = "t_compra_cliente")
 public class CompraCliente {
 
    @Id
    private String usuarioCliente;
 
-   private long cnpj;
-   private String nomeCliente;
+   private long cnpjCliente;
+   private String nmCliente;
    private String senhaCliente;
    private String setorCliente;
 
@@ -31,8 +31,8 @@ public class CompraCliente {
 
    public CompraCliente(DadosCadastroCliente dados) {
       this.usuarioCliente = dados.usuarioCliente();
-      this.cnpj = dados.cnpj();
-      this.nomeCliente = dados.nomeCliente();
+      this.cnpjCliente = dados.cnpjCliente();
+      this.nmCliente = dados.nmCliente();
       this.senhaCliente = dados.senhaCliente();
       this.compraRequisicoes = dados.requisicao();
    }
@@ -42,10 +42,10 @@ public class CompraCliente {
          this.usuarioCliente = dados.usuarioCliente();
       }
       if (dados.cnpj() != null) {
-         this.cnpj = dados.cnpj();
+         this.cnpjCliente = dados.cnpj();
       }
-      if (dados.nomeCliente() !=  null) {
-         this.nomeCliente = dados.nomeCliente();
+      if (dados.nmCliente() !=  null) {
+         this.nmCliente = dados.nmCliente();
       }
       if (dados.senhaCliente() != null) {
          this.senhaCliente = dados.senhaCliente();

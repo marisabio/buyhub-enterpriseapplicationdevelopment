@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/orcamento")
+@RequestMapping("/orcamentos")
 @Tag(name = "Orçamento",description = "CRUD de orçamento.")
-public class OrcamentoController {
+public class ControllerOrcamento {
 
     @Autowired
     private RepositoryOrcamento repository;

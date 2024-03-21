@@ -10,11 +10,11 @@ import java.util.List;
 public record DadosListagemProduto(
         Long idProduto,
         List<CompraFornecedor> compraFornecedor,
-        String descricaoProduto,
-        double valorProduto,
+        String descProduto,
+        double vlProduto,
         String aplicacaoProduto) {
 
     public DadosListagemProduto(CompraProduto CompraProduto) {
-        this(CompraProduto.getIdProduto(), CompraProduto.getCompraFornecedor(), CompraProduto.getDescricaoProduto(), CompraProduto.getValorProduto(), CompraProduto.getAplicacaoProduto());
+        this(CompraProduto.getIdProduto(), CompraProduto.getCompraFornecedor(), CompraProduto.getDescProduto(), CompraProduto.getVlProduto(), CompraProduto.getAplicacaoProd());
     }
 }

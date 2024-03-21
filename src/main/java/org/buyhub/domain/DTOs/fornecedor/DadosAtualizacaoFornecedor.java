@@ -11,7 +11,7 @@ public record DadosAtualizacaoFornecedor(
         @NotBlank
         Long cnpjFornecedor,
         String senhaFornecedor,
-        String nomeFornecedor,
+        String nmFornecedor,
         String ramoFornecedor,
         @Valid
         List<CompraOrcamento> compraOrcamentos,

@@ -17,9 +17,9 @@ public record DadosCadastroPedido(
         @Valid
         List<CompraRequisicao> compraRequisicao,
         @NotBlank
-        int quantidadePedido,
+        int qntdPedido,
         @NotBlank
-        Date dataPedido,
+        Date dtPedido,
         @NotBlank
         @Valid
         List<CompraCliente> compraCliente,

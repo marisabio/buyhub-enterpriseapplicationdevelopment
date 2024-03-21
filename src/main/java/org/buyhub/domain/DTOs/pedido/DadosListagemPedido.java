@@ -9,13 +9,13 @@ public record DadosListagemPedido(
         Long idPedido,
         List<CompraOrcamento> compraOrcamento,
         List<CompraRequisicao> compraRequisicao,
-        int quantidadePedido,
-        Date dataPedido,
+        int qntdPedido,
+        Date dtPedido,
         List<CompraCliente> compraCliente,
         List<CompraFornecedor> compraFornecedor,
         List<CompraProduto> compraProduto) {
 
     public DadosListagemPedido(ComprasPedido ComprasPedido) {
-        this(ComprasPedido.getIdPedido(), ComprasPedido.getCompraOrcamento(), ComprasPedido.getCompraRequisicao(), ComprasPedido.getQuantidadePedido(), ComprasPedido.getDataPedido(), ComprasPedido.getCompraCliente(), ComprasPedido.getCompraFornecedor(), ComprasPedido.getCompraProduto());
+        this(ComprasPedido.getIdPedido(), ComprasPedido.getCompraOrcamento(), ComprasPedido.getCompraRequisicao(), ComprasPedido.getQntdPedido(), ComprasPedido.getDtPedido(), ComprasPedido.getCompraCliente(), ComprasPedido.getCompraFornecedor(), ComprasPedido.getCompraProduto());
     }
 }
