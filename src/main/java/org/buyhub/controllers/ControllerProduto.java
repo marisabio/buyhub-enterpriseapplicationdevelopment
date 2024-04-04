@@ -22,7 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Produto",description = "CRUD de produto.")
 public class ControllerProduto {
 
-    @Autowired
     private RepositoryProduto repository;
 
     @PostMapping

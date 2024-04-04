@@ -22,7 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Cliente",description = "CRUD do Cliente.")
 public class ControllerCliente {
 
-    @Autowired
     private RepositoryCliente repository;
 
     @PostMapping
@@ -35,7 +34,7 @@ public class ControllerCliente {
         return ResponseEntity.created(uri).body(new DadosListagemCliente(cliente));
     }
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de clientes", description = "Endpoint da listagem de clientes cadastrados.")
     public ResponseEntity<Page<DadosListagemCliente>> listar(@PageableDefault(size = 10)Pageable paginacao) {
         var page = repository.findAll(paginacao).map((DadosListagemCliente::new));

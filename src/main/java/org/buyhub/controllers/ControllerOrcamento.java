@@ -22,7 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Orçamento",description = "CRUD de orçamento.")
 public class ControllerOrcamento {
 
-    @Autowired
     private RepositoryOrcamento repository;
 
     @PostMapping
