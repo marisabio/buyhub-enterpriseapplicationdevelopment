@@ -8,7 +8,6 @@ import org.buyhub.domain.DTOs.cliente.DadosCadastroCliente;
 import org.buyhub.domain.DTOs.cliente.DadosListagemCliente;
 import org.buyhub.domain.DTOs.cliente.RepositoryCliente;
 import org.buyhub.domain.entities.CompraCliente;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -41,7 +40,7 @@ public class ControllerCliente {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{usuarioCliente}")
+    @GetMapping(path = "/{usuarioCliente}", produces = "application/json")
     @Operation(summary = "Exibir cliente", description = "Endpoint da exibição de um único cliente cadastrado.")
     public ResponseEntity exibir(@PathVariable String CompraCliente) {
         var cliente = repository.getReferenceById(CompraCliente);
@@ -57,7 +56,7 @@ public class ControllerCliente {
         return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
 
-    @DeleteMapping("/{usuarioCliente}")
+    @DeleteMapping(path = "/{usuarioCliente}")
     @Transactional
     @Operation(summary = "Excluir cliente", description = "Endpoint da exclusão de um único cliente cadastrado.")
     public ResponseEntity excluir(@PathVariable String CompraCliente) {

@@ -8,7 +8,6 @@ import org.buyhub.domain.DTOs.fornecedor.RepositoryFornecedor;
 import org.buyhub.domain.DTOs.fornecedor.DadosCadastroFornecedor;
 import org.buyhub.domain.DTOs.fornecedor.DadosListagemFornecedor;
 import org.buyhub.domain.entities.CompraFornecedor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -34,14 +33,14 @@ public class ControllerFornecedor {
         return ResponseEntity.created(uri).body(new DadosListagemFornecedor(fornecedor));
     }
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de fornecedores", description = "Endpoint da listagem de fornecedores cadastrados.")
     public ResponseEntity<Page<DadosListagemFornecedor>> listar(@PageableDefault(size = 10) Pageable paginacao) {
         var page = repository.findAll(paginacao).map((DadosListagemFornecedor::new));
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{cnpjFornecedor}")
+    @GetMapping(path = "/{cnpjFornecedor}", produces = "application/json")
     @Operation(summary = "Exibir fornecedor", description = "Endpoint da exibição de um único fornecedor cadastrado.")
     public ResponseEntity exibir(@PathVariable Long CompraFornecedor) {
         var fornecedor = repository.getReferenceById(CompraFornecedor);
@@ -57,7 +56,7 @@ public class ControllerFornecedor {
         return ResponseEntity.ok(new DadosListagemFornecedor(fornecedor));
     }
 
-    @DeleteMapping("/{cnpjFornecedor}")
+    @DeleteMapping(path = "/{cnpjFornecedor}")
     @Transactional
     @Operation(summary = "Excluir fornecedor", description = "Endpoint da exclusão de um único fornecedor cadastrado.")
     public ResponseEntity excluir(@PathVariable Long CompraFornecedor) {

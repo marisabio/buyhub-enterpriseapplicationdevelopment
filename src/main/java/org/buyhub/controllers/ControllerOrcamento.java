@@ -8,7 +8,6 @@ import org.buyhub.domain.DTOs.orcamento.DadosCadastroOrcamento;
 import org.buyhub.domain.DTOs.orcamento.DadosListagemOrcamento;
 import org.buyhub.domain.DTOs.orcamento.RepositoryOrcamento;
 import org.buyhub.domain.entities.CompraOrcamento;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -34,14 +33,14 @@ public class ControllerOrcamento {
         return ResponseEntity.created(uri).body(new DadosListagemOrcamento(orcamento));
     }
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de orçamento", description = "Endpoint da listagem de orçamentos cadastrados.")
     public ResponseEntity<Page<DadosListagemOrcamento>> listar(@PageableDefault(size = 10) Pageable paginacao) {
         var page = repository.findAll(paginacao).map((DadosListagemOrcamento::new));
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{idOrcamento}")
+    @GetMapping(path = "/{idOrcamento}", produces = "application/json")
     @Operation(summary = "Exibir orçamento", description = "Endpoint da exibição de um único orçamento cadastrado.")
     public ResponseEntity exibir(@PathVariable Long CompraOrcamento) {
         var orcamento = repository.getReferenceById(CompraOrcamento);
@@ -57,7 +56,7 @@ public class ControllerOrcamento {
         return ResponseEntity.ok(new DadosListagemOrcamento(orcamento));
     }
 
-    @DeleteMapping("/{idOrcamento}")
+    @DeleteMapping(path = "/{idOrcamento}")
     @Transactional
     @Operation(summary = "Excluir orçamento", description = "Endpoint da exclusão de um único orçamento cadastrado.")
     public ResponseEntity excluir(@PathVariable Long CompraOrcamento) {

@@ -34,14 +34,14 @@ public class ControllerProduto {
         return ResponseEntity.created(uri).body(new DadosListagemProduto(produto));
     }
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de produtos", description = "Endpoint da listagem de produtos cadastrados.")
     public ResponseEntity<Page<DadosListagemProduto>> listar(@PageableDefault(size = 10) Pageable paginacao) {
         var page = repository.findAll(paginacao).map((DadosListagemProduto::new));
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{idProduto}")
+    @GetMapping(path = "/{idProduto}", produces = "application/json")
     @Operation(summary = "Exibir produto", description = "Endpoint da exibição de um único produto cadastrado.")
     public ResponseEntity exibir(@PathVariable long CompraProduto) {
         var produto = repository.getReferenceById(CompraProduto);
@@ -57,7 +57,7 @@ public class ControllerProduto {
         return ResponseEntity.ok(new DadosListagemProduto(produto));
     }
 
-    @DeleteMapping("/{idProduto}")
+    @DeleteMapping(path = "/{idProduto}")
     @Transactional
     @Operation(summary = "Excluir produto", description = "Endpoint da exclusão de um único produto cadastrado.")
     public ResponseEntity excluir(@PathVariable long CompraProduto) {

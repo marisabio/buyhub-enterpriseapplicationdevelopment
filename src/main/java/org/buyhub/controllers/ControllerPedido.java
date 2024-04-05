@@ -8,7 +8,6 @@ import org.buyhub.domain.DTOs.pedido.DadosCadastroPedido;
 import org.buyhub.domain.DTOs.pedido.DadosListagemPedido;
 import org.buyhub.domain.DTOs.pedido.RepositoryPedido;
 import org.buyhub.domain.entities.ComprasPedido;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -34,14 +33,14 @@ public class ControllerPedido {
         return ResponseEntity.created(uri).body(new DadosListagemPedido(pedido));
     }
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de pedido", description = "Endpoint da listagem de pedidos cadastrados.")
     public ResponseEntity<Page<DadosListagemPedido>> listar(@PageableDefault(size = 10) Pageable paginacao) {
         var page = repository.findAll(paginacao).map((DadosListagemPedido::new));
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{idPedido}")
+    @GetMapping(path = "/{idPedido}", produces = "application/json")
     @Operation(summary = "Exibir pedido", description = "Endpoint da exibição de um único pedido cadastrado.")
     public ResponseEntity exibir(@PathVariable Long ComprasPedido) {
         var pedido = repository.getReferenceById(ComprasPedido);
@@ -57,7 +56,7 @@ public class ControllerPedido {
         return ResponseEntity.ok(new DadosListagemPedido(pedido));
     }
 
-    @DeleteMapping("/{idPedido}")
+    @DeleteMapping(path = "/{idPedido}")
     @Transactional
     @Operation(summary = "Excluir pedido", description = "Endpoint da exclusão de um único pedido cadastrado.")
     public ResponseEntity excluir(@PathVariable Long ComprasPedido) {
