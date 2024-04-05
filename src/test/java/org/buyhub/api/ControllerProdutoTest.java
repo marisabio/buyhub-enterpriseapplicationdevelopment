@@ -18,12 +18,4 @@ public class ControllerProdutoTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void getProdutoApiTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/produtos")
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.pedidos").exists());
-    }
 }

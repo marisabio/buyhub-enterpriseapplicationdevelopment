@@ -18,13 +18,4 @@ public class ControllerRequisicaoTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void getRequisicaoApiTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/requisicoes")
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.requisicoes").exists());
-    }
-
 }

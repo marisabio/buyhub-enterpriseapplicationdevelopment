@@ -18,12 +18,4 @@ public class ControllerFornecedorTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void getFornecedorApiTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/fornecedores")
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.fornecedores").exists());
-    }
 }

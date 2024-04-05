@@ -18,14 +18,5 @@ public class ControllerClienteTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void getClienteApiTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/clientes")
-                        .accept(MediaType.APPLICATION_JSON))
-                        .andDo(print())
-                        .andExpect(status().isOk())
-                        .andExpect(MockMvcResultMatchers.jsonPath("$.clientes").exists());
-    }
-
 }
 

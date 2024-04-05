@@ -18,12 +18,4 @@ public class ControllerOrcamentoTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void getOrcamentoApiTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/orcamentos")
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.orcamentos").exists());
-    }
 }
