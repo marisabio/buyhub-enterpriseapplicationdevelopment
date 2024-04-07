@@ -8,6 +8,7 @@ import org.buyhub.domain.DTOs.pedido.DadosCadastroPedido;
 import org.buyhub.domain.DTOs.pedido.DadosListagemPedido;
 import org.buyhub.domain.DTOs.pedido.RepositoryPedido;
 import org.buyhub.domain.entities.ComprasPedido;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Pedido",description = "CRUD de pedido.")
 public class ControllerPedido {
 
+    @Autowired
     private RepositoryPedido repository;
 
     @PostMapping

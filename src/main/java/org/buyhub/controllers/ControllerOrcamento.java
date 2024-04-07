@@ -8,6 +8,7 @@ import org.buyhub.domain.DTOs.orcamento.DadosCadastroOrcamento;
 import org.buyhub.domain.DTOs.orcamento.DadosListagemOrcamento;
 import org.buyhub.domain.DTOs.orcamento.RepositoryOrcamento;
 import org.buyhub.domain.entities.CompraOrcamento;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Orçamento",description = "CRUD de orçamento.")
 public class ControllerOrcamento {
 
+    @Autowired
     private RepositoryOrcamento repository;
 
     @PostMapping

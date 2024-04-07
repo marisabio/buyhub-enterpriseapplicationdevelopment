@@ -8,6 +8,7 @@ import org.buyhub.domain.DTOs.cliente.DadosCadastroCliente;
 import org.buyhub.domain.DTOs.cliente.DadosListagemCliente;
 import org.buyhub.domain.DTOs.cliente.RepositoryCliente;
 import org.buyhub.domain.entities.CompraCliente;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Cliente",description = "CRUD do Cliente.")
 public class ControllerCliente {
 
+    @Autowired
     private RepositoryCliente repository;
 
     @PostMapping

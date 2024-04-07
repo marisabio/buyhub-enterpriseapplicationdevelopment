@@ -22,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Requisição",description = "CRUD de requisição.")
 public class ControllerRequisicao {
 
+    @Autowired
     private RepositoryRequisicao repository;
 
     @PostMapping

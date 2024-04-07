@@ -8,6 +8,7 @@ import org.buyhub.domain.DTOs.fornecedor.RepositoryFornecedor;
 import org.buyhub.domain.DTOs.fornecedor.DadosCadastroFornecedor;
 import org.buyhub.domain.DTOs.fornecedor.DadosListagemFornecedor;
 import org.buyhub.domain.entities.CompraFornecedor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Fornecedor",description = "CRUD de fornecedor.")
 public class ControllerFornecedor {
 
+    @Autowired
     private RepositoryFornecedor repository;
 
     @PostMapping
