@@ -65,5 +65,4 @@ public class ControllerCliente {
         repository.deleteById(CompraCliente);
         return ResponseEntity.ok().body("Cliente " + CompraCliente + " deletado.");
     }
-
 }
