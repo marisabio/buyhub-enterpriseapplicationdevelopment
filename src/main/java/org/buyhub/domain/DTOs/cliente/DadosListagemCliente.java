@@ -10,11 +10,11 @@ public record DadosListagemCliente(
         long cnpjCliente,
         String nmCliente,
         String senhaCliente,
-        String setorCliente
-//        List<CompraRequisicao> requisicao
+        String setorCliente,
+        List<CompraRequisicao> requisicao
         ) {
 
     public DadosListagemCliente(CompraCliente cliente) {
-        this(cliente.getUsuarioCliente(), cliente.getCnpjCliente(), cliente.getNmCliente(), cliente.getSenhaCliente(), cliente.getSetorCliente());
+        this(cliente.getUsuarioCliente(), cliente.getCnpjCliente(), cliente.getNmCliente(), cliente.getSenhaCliente(), cliente.getSetorCliente(), cliente.getCompraRequisicoes());
     }
 }
