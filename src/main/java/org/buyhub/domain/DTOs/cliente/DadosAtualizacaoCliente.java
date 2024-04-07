@@ -13,6 +13,8 @@ public record DadosAtualizacaoCliente(
         Long cnpj,
         String nmCliente,
         String senhaCliente,
-        String setorCliente,
-        List<CompraRequisicao> requisicao) {
+        String setorCliente
+
+        //List<CompraRequisicao> requisicao
+        ) {
 }

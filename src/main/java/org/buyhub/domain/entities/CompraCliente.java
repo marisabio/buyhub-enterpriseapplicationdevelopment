@@ -26,15 +26,15 @@ public class CompraCliente {
    private String senhaCliente;
    private String setorCliente;
 
-   @OneToMany(targetEntity = CompraRequisicao.class, mappedBy = "compraCliente", fetch = FetchType.LAZY)
-   private List<CompraRequisicao> compraRequisicoes;
+   //@OneToMany(targetEntity = CompraRequisicao.class, mappedBy = "compraCliente", fetch = FetchType.LAZY)
+   //private List<CompraRequisicao> compraRequisicoes;
 
    public CompraCliente(DadosCadastroCliente dados) {
       this.usuarioCliente = dados.usuarioCliente();
       this.cnpjCliente = dados.cnpjCliente();
       this.nmCliente = dados.nmCliente();
       this.senhaCliente = dados.senhaCliente();
-      this.compraRequisicoes = dados.requisicao();
+      //this.compraRequisicoes = dados.requisicao();
    }
 
    public void atualizarInformacoes(DadosAtualizacaoCliente dados) {
@@ -50,8 +50,8 @@ public class CompraCliente {
       if (dados.senhaCliente() != null) {
          this.senhaCliente = dados.senhaCliente();
       }
-      if (dados.requisicao() != null) {
-         this.compraRequisicoes = dados.requisicao();
-      }
+      //if (dados.requisicao() != null) {
+         //this.compraRequisicoes = dados.requisicao();
+      //}
    }
 }

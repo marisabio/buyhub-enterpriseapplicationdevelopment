@@ -19,8 +19,10 @@ public record DadosCadastroCliente(
         @NotBlank
         String senhaCliente,
         @NotBlank
-        String setorCliente,
-        @NotNull
-        @Valid
-        List<CompraRequisicao> requisicao) {
+        String setorCliente
+
+//        @NotNull
+//        @Valid
+//        List<CompraRequisicao> requisicao
+        ) {
 }
