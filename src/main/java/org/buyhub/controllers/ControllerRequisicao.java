@@ -38,7 +38,7 @@ public class ControllerRequisicao {
     @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de requisições", description = "Endpoint da listagem de requisições cadastradas.")
     public ResponseEntity<Page<DadosListagemRequisicao>> listar(@PageableDefault(size = 10) Pageable paginacao) {
-        var page = repository.findAll(paginacao).map((DadosListagemRequisicao::new));
+        var page = repository.findAll(paginacao).map(DadosListagemRequisicao::new);
         return ResponseEntity.ok(page);
     }
 

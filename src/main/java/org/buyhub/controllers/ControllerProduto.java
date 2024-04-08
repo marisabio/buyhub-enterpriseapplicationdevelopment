@@ -38,7 +38,7 @@ public class ControllerProduto {
     @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de produtos", description = "Endpoint da listagem de produtos cadastrados.")
     public ResponseEntity<Page<DadosListagemProduto>> listar(@PageableDefault(size = 10) Pageable paginacao) {
-        var page = repository.findAll(paginacao).map((DadosListagemProduto::new));
+        var page = repository.findAll(paginacao).map(DadosListagemProduto::new);
         return ResponseEntity.ok(page);
     }
 

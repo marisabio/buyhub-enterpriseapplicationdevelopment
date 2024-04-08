@@ -38,7 +38,7 @@ public class ControllerOrcamento {
     @GetMapping(produces = "application/json")
     @Operation(summary = "Listagem de orçamento", description = "Endpoint da listagem de orçamentos cadastrados.")
     public ResponseEntity<Page<DadosListagemOrcamento>> listar(@PageableDefault(size = 10) Pageable paginacao) {
-        var page = repository.findAll(paginacao).map((DadosListagemOrcamento::new));
+        var page = repository.findAll(paginacao).map(DadosListagemOrcamento::new);
         return ResponseEntity.ok(page);
     }
 
