@@ -18,7 +18,7 @@ variables:
   environmentName: 'api-buyhub'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'openjdk:17-jdk-slim'
 
 stages:
 - stage: Build
