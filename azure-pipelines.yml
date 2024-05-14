@@ -30,10 +30,16 @@ stages:
       vmImage: $(vmImageName)
 
     steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
+    - task: Maven@4
       inputs:
         mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.17'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        goals: 'package'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
@@ -41,11 +47,6 @@ stages:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**/target/*.?(war|jar)'
         TargetFolder: $(Build.ArtifactStagingDirectory)
-    - task: JavaToolInstaller@0
-      inputs:
-        versionSpec: '17'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: 'PreInstalled'
 
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
