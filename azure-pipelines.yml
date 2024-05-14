@@ -18,7 +18,7 @@ variables:
   environmentName: 'api-buyhub'
 
   # Agent VM image name
-  vmImageName: 'openjdk:17-jdk-slim'
+  vmImageName: 'openjdk:23-ea-17-jdk-bullseye'
 
 stages:
 - stage: Build
