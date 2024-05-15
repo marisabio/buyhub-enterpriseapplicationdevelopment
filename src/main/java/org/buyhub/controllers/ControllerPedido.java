@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.pedido.DadosAtualizacaoPedido;
-import org.buyhub.domain.DTOs.pedido.DadosCadastroPedido;
-import org.buyhub.domain.DTOs.pedido.DadosListagemPedido;
-import org.buyhub.domain.DTOs.pedido.RepositoryPedido;
+import org.buyhub.service.DTOs.pedido.DadosAtualizacaoPedido;
+import org.buyhub.service.DTOs.pedido.DadosCadastroPedido;
+import org.buyhub.service.DTOs.pedido.DadosListagemPedido;
+import org.buyhub.service.DTOs.pedido.RepositoryPedido;
 import org.buyhub.domain.entities.ComprasPedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +45,9 @@ public class ControllerPedido {
     @GetMapping(path = "/{idPedido}", produces = "application/json")
     @Operation(summary = "Exibir pedido", description = "Endpoint da exibição de um único pedido cadastrado.")
     public ResponseEntity exibir(@PathVariable Long ComprasPedido) {
+        if(ComprasPedido.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var pedido = repository.getReferenceById(ComprasPedido);
         return ResponseEntity.ok(new DadosListagemPedido(pedido));
     }
@@ -62,6 +65,9 @@ public class ControllerPedido {
     @Transactional
     @Operation(summary = "Excluir pedido", description = "Endpoint da exclusão de um único pedido cadastrado.")
     public ResponseEntity excluir(@PathVariable Long ComprasPedido) {
+        if(ComprasPedido.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(ComprasPedido);
         return ResponseEntity.ok().body("Pedido " + ComprasPedido + " deletado.");
     }

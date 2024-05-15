@@ -2,8 +2,8 @@ package org.buyhub.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.buyhub.domain.DTOs.produtoWeb.DadosListagemProdutoWeb;
-import org.buyhub.domain.DTOs.produtoWeb.RepositoryProdutoWeb;
+import org.buyhub.service.DTOs.produtoWeb.DadosListagemProdutoWeb;
+import org.buyhub.service.DTOs.produtoWeb.RepositoryProdutoWeb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +32,9 @@ public class ControllerProdutoWeb {
     @GetMapping(path = "/{titulo}", produces = "application/json")
     @Operation(summary = "Resultado do webscrapping", description = "Endpoint da exibição de um único resultado do webscrapping.")
     public ResponseEntity exibir(@PathVariable String ProdutoWeb) {
+        if(ProdutoWeb.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var produtoWeb = repository.getReferenceById(ProdutoWeb);
         return ResponseEntity.ok(new DadosListagemProdutoWeb(produtoWeb));
     }

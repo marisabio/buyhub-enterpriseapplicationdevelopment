@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.fornecedor.DadosAtualizacaoFornecedor;
-import org.buyhub.domain.DTOs.fornecedor.RepositoryFornecedor;
-import org.buyhub.domain.DTOs.fornecedor.DadosCadastroFornecedor;
-import org.buyhub.domain.DTOs.fornecedor.DadosListagemFornecedor;
+import org.buyhub.service.DTOs.fornecedor.DadosAtualizacaoFornecedor;
+import org.buyhub.service.DTOs.fornecedor.RepositoryFornecedor;
+import org.buyhub.service.DTOs.fornecedor.DadosCadastroFornecedor;
+import org.buyhub.service.DTOs.fornecedor.DadosListagemFornecedor;
 import org.buyhub.domain.entities.CompraFornecedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +45,9 @@ public class ControllerFornecedor {
     @GetMapping(path = "/{cnpjFornecedor}", produces = "application/json")
     @Operation(summary = "Exibir fornecedor", description = "Endpoint da exibição de um único fornecedor cadastrado.")
     public ResponseEntity exibir(@PathVariable Long CompraFornecedor) {
+        if(CompraFornecedor.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var fornecedor = repository.getReferenceById(CompraFornecedor);
         return ResponseEntity.ok(new DadosListagemFornecedor(fornecedor));
     }
@@ -62,6 +65,9 @@ public class ControllerFornecedor {
     @Transactional
     @Operation(summary = "Excluir fornecedor", description = "Endpoint da exclusão de um único fornecedor cadastrado.")
     public ResponseEntity excluir(@PathVariable Long CompraFornecedor) {
+        if(CompraFornecedor.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(CompraFornecedor);
         return ResponseEntity.ok().body("Fornecedor " + CompraFornecedor + " deletado.");
     }

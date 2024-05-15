@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.orcamento.DadosAtualizacaoOrcamento;
-import org.buyhub.domain.DTOs.orcamento.DadosCadastroOrcamento;
-import org.buyhub.domain.DTOs.orcamento.DadosListagemOrcamento;
-import org.buyhub.domain.DTOs.orcamento.RepositoryOrcamento;
+import org.buyhub.service.DTOs.orcamento.DadosAtualizacaoOrcamento;
+import org.buyhub.service.DTOs.orcamento.DadosCadastroOrcamento;
+import org.buyhub.service.DTOs.orcamento.DadosListagemOrcamento;
+import org.buyhub.service.DTOs.orcamento.RepositoryOrcamento;
 import org.buyhub.domain.entities.CompraOrcamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +45,9 @@ public class ControllerOrcamento {
     @GetMapping(path = "/{idOrcamento}", produces = "application/json")
     @Operation(summary = "Exibir orçamento", description = "Endpoint da exibição de um único orçamento cadastrado.")
     public ResponseEntity exibir(@PathVariable Long CompraOrcamento) {
+        if(CompraOrcamento.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var orcamento = repository.getReferenceById(CompraOrcamento);
         return ResponseEntity.ok(new DadosListagemOrcamento(orcamento));
     }
@@ -62,6 +65,9 @@ public class ControllerOrcamento {
     @Transactional
     @Operation(summary = "Excluir orçamento", description = "Endpoint da exclusão de um único orçamento cadastrado.")
     public ResponseEntity excluir(@PathVariable Long CompraOrcamento) {
+        if(CompraOrcamento.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(CompraOrcamento);
         return ResponseEntity.ok().body("Orçamento " + CompraOrcamento + " deletado.");
     }

@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.buyhub.domain.DTOs.cliente.DadosAtualizacaoCliente;
-import org.buyhub.domain.DTOs.cliente.DadosCadastroCliente;
+import org.buyhub.service.DTOs.cliente.DadosAtualizacaoCliente;
+import org.buyhub.service.DTOs.cliente.DadosCadastroCliente;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class CompraCliente {
    @Id
    private String usuarioCliente;
 
-   private long cnpjCliente;
+   private Long cnpjCliente;
    private String nmCliente;
    private String senhaCliente;
    private String setorCliente;

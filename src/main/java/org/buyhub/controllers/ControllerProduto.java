@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.produto.DadosAtualizacaoProduto;
-import org.buyhub.domain.DTOs.produto.DadosCadastroProduto;
-import org.buyhub.domain.DTOs.produto.DadosListagemProduto;
-import org.buyhub.domain.DTOs.produto.RepositoryProduto;
+import org.buyhub.service.DTOs.produto.DadosAtualizacaoProduto;
+import org.buyhub.service.DTOs.produto.DadosCadastroProduto;
+import org.buyhub.service.DTOs.produto.DadosListagemProduto;
+import org.buyhub.service.DTOs.produto.RepositoryProduto;
 import org.buyhub.domain.entities.CompraProduto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,7 +44,10 @@ public class ControllerProduto {
 
     @GetMapping(path = "/{idProduto}", produces = "application/json")
     @Operation(summary = "Exibir produto", description = "Endpoint da exibição de um único produto cadastrado.")
-    public ResponseEntity exibir(@PathVariable long CompraProduto) {
+    public ResponseEntity exibir(@PathVariable Long CompraProduto) {
+        if(CompraProduto.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var produto = repository.getReferenceById(CompraProduto);
         return ResponseEntity.ok(new DadosListagemProduto(produto));
     }
@@ -61,7 +64,10 @@ public class ControllerProduto {
     @DeleteMapping(path = "/{idProduto}")
     @Transactional
     @Operation(summary = "Excluir produto", description = "Endpoint da exclusão de um único produto cadastrado.")
-    public ResponseEntity excluir(@PathVariable long CompraProduto) {
+    public ResponseEntity excluir(@PathVariable Long CompraProduto) {
+        if(CompraProduto.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(CompraProduto);
         return ResponseEntity.ok().body("Cliente " + CompraProduto + " deletado.");
     }

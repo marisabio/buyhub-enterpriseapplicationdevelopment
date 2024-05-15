@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.buyhub.domain.DTOs.fornecedor.DadosAtualizacaoFornecedor;
-import org.buyhub.domain.DTOs.fornecedor.DadosCadastroFornecedor;
+import org.buyhub.service.DTOs.fornecedor.DadosAtualizacaoFornecedor;
+import org.buyhub.service.DTOs.fornecedor.DadosCadastroFornecedor;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
 public class CompraFornecedor {
 
     @Id
-    private long cnpjFornecedor;
+    private Long cnpjFornecedor;
 
     private String senhaFornecedor;
     private String nmFornecedor;

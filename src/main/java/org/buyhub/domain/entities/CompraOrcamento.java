@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.buyhub.domain.DTOs.orcamento.DadosAtualizacaoOrcamento;
-import org.buyhub.domain.DTOs.orcamento.DadosCadastroOrcamento;
+import org.buyhub.service.DTOs.orcamento.DadosAtualizacaoOrcamento;
+import org.buyhub.service.DTOs.orcamento.DadosCadastroOrcamento;
 
 import java.sql.Date;
 import java.util.List;
@@ -21,7 +21,7 @@ public class CompraOrcamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idOrcamento;
+    private Long idOrcamento;
 
     @ManyToOne(targetEntity = CompraRequisicao.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_requisicao")

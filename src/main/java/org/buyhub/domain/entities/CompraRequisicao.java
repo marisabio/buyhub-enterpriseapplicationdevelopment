@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.buyhub.domain.DTOs.requisicao.DadosAtualizacaoRequisicao;
-import org.buyhub.domain.DTOs.requisicao.DadosCadastroRequisicao;
+import org.buyhub.service.DTOs.requisicao.DadosAtualizacaoRequisicao;
+import org.buyhub.service.DTOs.requisicao.DadosCadastroRequisicao;
 
 import java.sql.Date;
 import java.util.List;
@@ -21,7 +21,7 @@ public class CompraRequisicao {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long idRequisicao;
+    private Long idRequisicao;
 
     @ManyToOne(targetEntity = CompraProduto.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "idProduto")

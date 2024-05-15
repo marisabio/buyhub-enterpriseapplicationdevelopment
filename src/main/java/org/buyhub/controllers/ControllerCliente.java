@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.cliente.DadosAtualizacaoCliente;
-import org.buyhub.domain.DTOs.cliente.DadosCadastroCliente;
-import org.buyhub.domain.DTOs.cliente.DadosListagemCliente;
-import org.buyhub.domain.DTOs.cliente.RepositoryCliente;
+import org.buyhub.service.DTOs.cliente.DadosAtualizacaoCliente;
+import org.buyhub.service.DTOs.cliente.DadosCadastroCliente;
+import org.buyhub.service.DTOs.cliente.DadosListagemCliente;
+import org.buyhub.service.DTOs.cliente.RepositoryCliente;
 import org.buyhub.domain.entities.CompraCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +45,9 @@ public class ControllerCliente {
     @GetMapping(path = "/{usuarioCliente}", produces = "application/json")
     @Operation(summary = "Exibir cliente", description = "Endpoint da exibição de um único cliente cadastrado.")
     public ResponseEntity exibir(@PathVariable String CompraCliente) {
+        if(CompraCliente.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var cliente = repository.getReferenceById(CompraCliente);
         return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
@@ -62,6 +65,9 @@ public class ControllerCliente {
     @Transactional
     @Operation(summary = "Excluir cliente", description = "Endpoint da exclusão de um único cliente cadastrado.")
     public ResponseEntity excluir(@PathVariable String CompraCliente) {
+        if(CompraCliente.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(CompraCliente);
         return ResponseEntity.ok().body("Cliente " + CompraCliente + " deletado.");
     }

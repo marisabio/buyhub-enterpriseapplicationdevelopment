@@ -3,10 +3,10 @@ package org.buyhub.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.buyhub.domain.DTOs.requisicao.DadosAtualizacaoRequisicao;
-import org.buyhub.domain.DTOs.requisicao.DadosCadastroRequisicao;
-import org.buyhub.domain.DTOs.requisicao.DadosListagemRequisicao;
-import org.buyhub.domain.DTOs.requisicao.RepositoryRequisicao;
+import org.buyhub.service.DTOs.requisicao.DadosAtualizacaoRequisicao;
+import org.buyhub.service.DTOs.requisicao.DadosCadastroRequisicao;
+import org.buyhub.service.DTOs.requisicao.DadosListagemRequisicao;
+import org.buyhub.service.DTOs.requisicao.RepositoryRequisicao;
 import org.buyhub.domain.entities.CompraRequisicao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +45,9 @@ public class ControllerRequisicao {
     @GetMapping(path = "/{idRequisicao}", produces = "application/json")
     @Operation(summary = "Exibir requisição", description = "Endpoint da exibição de uma única requisição cadastrada.")
     public ResponseEntity exibir(@PathVariable Long CompraRequisicao) {
+        if(CompraRequisicao.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         var requisicao = repository.getReferenceById(CompraRequisicao);
         return ResponseEntity.ok(new DadosListagemRequisicao(requisicao));
     }
@@ -62,6 +65,9 @@ public class ControllerRequisicao {
     @Transactional
     @Operation(summary = "Excluir requisição", description = "Endpoint da exclusão de uma única requisição cadastrada.")
     public ResponseEntity excluir(@PathVariable Long CompraRequisicao) {
+        if(CompraRequisicao.describeConstable().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
         repository.deleteById(CompraRequisicao);
         return ResponseEntity.ok().body("Requisição " + CompraRequisicao + " deletada.");
     }
