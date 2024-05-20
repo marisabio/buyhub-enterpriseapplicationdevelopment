@@ -47,7 +47,7 @@ public class ControllerCliente {
     @Operation(summary = "Exibir cliente", description = "Endpoint da exibição de um único cliente cadastrado.")
     public ResponseEntity<DadosListagemCliente> exibir(@PathVariable String usuarioCliente) {
         var cliente = repository.findById(usuarioCliente)
-                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este id :: " + usuarioCliente));
+                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este ID :: " + usuarioCliente));
         return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
 
@@ -56,7 +56,7 @@ public class ControllerCliente {
     @Operation(summary = "Atualizar cliente", description = "Endpoint da atualização de um único cliente cadastrado.")
     public ResponseEntity<DadosListagemCliente> atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
         var cliente = repository.findById(dados.usuarioCliente())
-                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este id :: " + dados.usuarioCliente()));
+                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este ID :: " + dados.usuarioCliente()));
         cliente.atualizarInformacoes(dados);
         return ResponseEntity.ok(new DadosListagemCliente(cliente));
     }
@@ -66,7 +66,7 @@ public class ControllerCliente {
     @Operation(summary = "Excluir cliente", description = "Endpoint da exclusão de um único cliente cadastrado.")
     public ResponseEntity<String> excluir(@PathVariable String usuarioCliente) {
         var cliente = repository.findById(usuarioCliente)
-                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este id :: " + usuarioCliente));
+                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado para este ID :: " + usuarioCliente));
         repository.delete(cliente);
         return ResponseEntity.ok("Cliente " + usuarioCliente + " deletado.");
     }
